@@ -1,6 +1,6 @@
 export const usePresetsStore = defineStore('presetsStore', () => {
     const presets = useLocalStorage('presetsStore/presets', []);
-    const activePresetName = useLocalStorage('presetsStore/activePresetName', 'chatgpt');
+    const activePresetName = useLocalStorage('presetsStore/activePresetName', 'bing');
     const activePreset = computed(() => getPreset(activePresetName.value));
 
     function setActivePresetName(name) {
