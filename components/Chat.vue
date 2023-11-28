@@ -590,10 +590,6 @@ const deleteMessage = (message, index) => {
 
                                 <span class="message-functions flex-1">
                                     <a href="javascript:;" class="function-buttons transition duration-300 ease-in-out
-                                        hover:bg-white/10" @click="deleteMessage(message, index)">
-                                        <Icon name="bx:bx-trash"/> Delete
-                                    </a>
-                                    <a href="javascript:;" class="function-buttons transition duration-300 ease-in-out
                                         hover:bg-white/10" @click="copyToClipboard(message.text, $event.target)">
                                         <Icon name="bx:bx-copy"/>&nbsp;<span class="copy-status">Copy</span>
                                     </a>
@@ -603,27 +599,6 @@ const deleteMessage = (message, index) => {
                             <div
                                 class="prose prose-sm prose-chatgpt break-words max-w-6xl"
                                 v-html="(message.role === 'user' || message.raw) ? parseMarkdown(message.text) : parseMarkdown(message.text, true)"
-                            />
-                        </div>
-                    </template>
-                    <template v-if="message !== ''">
-                        <div class="p-3 rounded-sm">
-                            <!-- role name -->
-                            <div
-                                class="flex flex-column text-xs text-white/50 mb-1"
-                            >
-                                <span class="message-role-name flex-1">
-                                    <Icon name="bx:user-voice"/>
-                                    Typing...
-                                </span>
-
-                                <span class="message-functions flex-1">
-                                </span>
-                            </div>
-                            <!-- message text -->
-                            <div
-                                class="prose prose-sm prose-chatgpt break-words max-w-6xl"
-                                v-html="parseMarkdown(message)"
                             />
                         </div>
                     </template>
