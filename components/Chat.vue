@@ -593,10 +593,6 @@ const deleteMessage = (message, index) => {
                                         hover:bg-white/10" @click="copyToClipboard(message.text, $event.target)">
                                         <Icon name="bx:bx-copy"/>&nbsp;<span class="copy-status">Copy</span>
                                     </a>
-                                    <a href="javascript:;" class="function-buttons transition duration-300 ease-in-out
-                                        hover:bg-white/10" @click="deleteMessage(message, index)">
-                                        <Icon name="bx:bx-trash"/> Delete
-                                    </a>
                                 </span>
                             </div>
                             <!-- message text -->
