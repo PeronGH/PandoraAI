@@ -92,14 +92,7 @@ onMounted(() => {
             <main class="flex flex-grow py-2">
                 <Chat/>
             </main>
-            <footer class="px-3 pb-6 text-center">
-                <!-- <span class="text-xs font-light text-slate-400">
-                    powered by
-                    <a href="https://github.com/waylaidwanderer/node-chatgpt-api" target="_blank">
-                        node-chatgpt-api
-                    </a>
-                </span> -->
-            </footer>
+            <footer />
         </div>
     </div>
 </template>
