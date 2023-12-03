@@ -93,12 +93,12 @@ onMounted(() => {
                 <Chat/>
             </main>
             <footer class="px-3 pb-6 text-center">
-                <span class="text-xs font-light text-slate-400">
+                <!-- <span class="text-xs font-light text-slate-400">
                     powered by
                     <a href="https://github.com/waylaidwanderer/node-chatgpt-api" target="_blank">
                         node-chatgpt-api
                     </a>
-                </span>
+                </span> -->
             </footer>
         </div>
     </div>
