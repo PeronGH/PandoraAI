@@ -528,14 +528,6 @@ const copyToClipboard = (message, element) => {
         return;
     }
 }
-
-const resendMessage = (message) => {
-    // ensure it's a user message
-    if (message.role !== 'user') {
-        return;
-    }
-    return sendMessage(message.text, message.parentMessageId);
-}
 </script>
 
 <template>
@@ -589,9 +581,9 @@ const resendMessage = (message) => {
                                         hover:bg-white/10" @click="copyToClipboard(message.text, $event.target)">
                                         <Icon name="bx:bx-copy"/>&nbsp;<span class="copy-status">Copy</span>
                                     </a>
-                                    <template v-if="message.role === 'user'">
+                                    <template v-if="message.role === 'user' && !processingController">
                                         <a href="javascript:;" class="function-buttons transition duration-300 ease-in-out
-                                            hover:bg-white/10" @click="resendMessage(message)">
+                                            hover:bg-white/10" @click="sendMessage(message.text, message.parentMessageId)">
                                             <Icon name="bx:bx-send"/>&nbsp;Resend
                                         </a>
                                     </template>
