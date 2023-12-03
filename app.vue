@@ -92,7 +92,7 @@ onMounted(() => {
             <main class="flex flex-grow py-2">
                 <Chat/>
             </main>
-            <footer />
+            <footer class="h-8" />
         </div>
     </div>
 </template>
