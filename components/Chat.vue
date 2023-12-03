@@ -529,16 +529,12 @@ const copyToClipboard = (message, element) => {
     }
 }
 
-const deleteMessage = (message, index) => {
-    if (typeof message.id !== 'undefined') {
-        messages.value = messages.value.filter((x, i) => !(
-            (x.id == message.id) || 
-            (message.role === 'user' ? x.parentMessageId == message.id : message.parentMessageId == x.id)
-        ));
+const resendMessage = (message) => {
+    // ensure it's a user message
+    if (message.role !== 'user') {
+        return;
     }
-    else {
-        messages.value = message.role === 'user' ? messages.value.filter((_, i) => !(i == index || i == index + 1)) : messages.value.filter((_, i) => !(i == index || i == index - 1));
-    }
+    return sendMessage(message.text, message.parentMessageId);
 }
 </script>
 
@@ -593,6 +589,12 @@ const deleteMessage = (message, index) => {
                                         hover:bg-white/10" @click="copyToClipboard(message.text, $event.target)">
                                         <Icon name="bx:bx-copy"/>&nbsp;<span class="copy-status">Copy</span>
                                     </a>
+                                    <template v-if="message.role === 'user'">
+                                        <a href="javascript:;" class="function-buttons transition duration-300 ease-in-out
+                                            hover:bg-white/10" @click="resendMessage(message)">
+                                            <Icon name="bx:bx-send"/>&nbsp;Resend
+                                        </a>
+                                    </template>
                                 </span>
                             </div>
                             <!-- message text -->
